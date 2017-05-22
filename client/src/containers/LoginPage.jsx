@@ -4,10 +4,6 @@ import LoginForm from '../components/LoginForm.jsx';
 
 
 class LoginPage extends React.Component {
-
-  /**
-   * Class constructor.
-   */
   constructor(props, context) {
     super(props, context);
 
@@ -19,7 +15,6 @@ class LoginPage extends React.Component {
       localStorage.removeItem('successMessage');
     }
 
-    // set the initial component state
     this.state = {
       errors: {},
       successMessage,
@@ -97,9 +92,6 @@ class LoginPage extends React.Component {
     });
   }
 
-  /**
-   * Render the component.
-   */
   render() {
     return (
       <LoginForm

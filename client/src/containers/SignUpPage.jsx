@@ -1,16 +1,10 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from '../components/SignUpForm.jsx';
 
-
 class SignUpPage extends React.Component {
-
-  /**
-   * Class constructor.
-   */
   constructor(props, context) {
     super(props, context);
 
-    // set the initial component state
     this.state = {
       errors: {},
       user: {
@@ -87,9 +81,6 @@ class SignUpPage extends React.Component {
     });
   }
 
-  /**
-   * Render the component.
-   */
   render() {
     return (
       <SignUpForm

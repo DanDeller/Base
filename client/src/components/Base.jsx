@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
 
-
-const Base = ({ children }) => (
+const Base = ({children}) => (
   <div>
     <div className="top-bar">
       <div className="top-bar-left">
@@ -23,7 +22,7 @@ const Base = ({ children }) => (
 
     </div>
 
-    { /* child component will be rendered here */ }
+    { /* child component below (homepage and login/logout items) */ }
     {children}
 
   </div>
