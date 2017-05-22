@@ -12,7 +12,7 @@ Base is a litle todo project with authentication.
 - Install packages (yarn install)
 
 <h3>Start up the app (done in 2 differnt console tabs)</h3>
-- yarn run bundle
+- yarn run bundle <br />
 - yarn start
 
 <h3>View frontend</h3>
