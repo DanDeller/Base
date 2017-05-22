@@ -15,7 +15,7 @@ Base is a litle todo project with authentication.
 - Install packages (yarn install)
 
 <h3>Start up the app (Done in 3 different console tabs)</h3>
-- mongoose <br />
+- mongoose (start by running `mongod` <br />
 - yarn run bundle <br />
 - yarn start
 
