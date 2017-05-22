@@ -1,31 +1,34 @@
 import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const Base = ({children}) => (
-  <div>
-    <div className="top-bar">
-      <div className="top-bar-left">
-        <IndexLink to="/">Base</IndexLink>
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <div>
+      <div className="top-bar">
+        <div className="top-bar-left">
+          <IndexLink to="/">Base</IndexLink>
+        </div>
+
+        {Auth.isUserAuthenticated() ? (
+          <div className="top-bar-right">
+            <Link to="/logout">Log out</Link>
+          </div>
+        ) : (
+          <div className="top-bar-right">
+            <Link to="/login">Log in</Link>
+            <Link to="/signup">Sign up</Link>
+          </div>
+        )}
       </div>
 
-      {Auth.isUserAuthenticated() ? (
-        <div className="top-bar-right">
-          <Link to="/logout">Log out</Link>
-        </div>
-      ) : (
-        <div className="top-bar-right">
-          <Link to="/login">Log in</Link>
-          <Link to="/signup">Sign up</Link>
-        </div>
-      )}
+      { /* child component below (homepage and login/logout items) */ }
+      {children}
 
     </div>
-
-    { /* child component below (homepage and login/logout items) */ }
-    {children}
-
-  </div>
+  </MuiThemeProvider>
 );
 
 Base.propTypes = {

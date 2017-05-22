@@ -9,7 +9,6 @@ module.exports = {
     path: path.join(__dirname, '/client/dist/js'),
     filename: 'app.js',
   },
-
   module: {
     loaders: [
     {
@@ -21,24 +20,23 @@ module.exports = {
       }
     },
     {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
+      test: /\.less$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true,
           },
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true,
-            },
+        },
+        {
+          loader: 'less-loader',
+          options: {
+            sourceMap: true,
           },
-        ],
-      }
-    ]
+        },
+      ],
+    }]
   },
   // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes
   watch: true
