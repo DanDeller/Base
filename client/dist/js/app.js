@@ -16177,7 +16177,8 @@ var Base = function Base(_ref) {
           'Sign up'
         )
       )
-    )
+    ),
+    children
   );
 };
 

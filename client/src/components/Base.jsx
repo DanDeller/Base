@@ -24,7 +24,7 @@ const Base = ({ children }) => (
     </div>
 
     { /* child component will be rendered here */ }
-    
+    {children}
 
   </div>
 );
