@@ -1,7 +1,6 @@
 const express = require('express');
 const validator = require('validator');
 const passport = require('passport');
-
 const router = new express.Router();
 
 /**
@@ -42,12 +41,13 @@ function validateSignupForm(payload) {
   };
 }
 
+
 /**
  * Validate the login form
  *
  * @param {object} payload - the HTTP body message
  * @returns {object} The result of validation. Object contains a boolean validation result,
- *                   errors tips, and a global message for the whole form.
+ * errors tips, and a global message for the whole form.
  */
 function validateLoginForm(payload) {
   const errors = {};
@@ -75,6 +75,7 @@ function validateLoginForm(payload) {
   };
 }
 
+
 router.post('/signup', (req, res, next) => {
   const validationResult = validateSignupForm(req.body);
   if (!validationResult.success) {
@@ -84,7 +85,6 @@ router.post('/signup', (req, res, next) => {
       errors: validationResult.errors
     });
   }
-
 
   return passport.authenticate('local-signup', (err) => {
     if (err) {
@@ -113,6 +113,7 @@ router.post('/signup', (req, res, next) => {
   })(req, res, next);
 });
 
+
 router.post('/login', (req, res, next) => {
   console.log(req.body)
   const validationResult = validateLoginForm(req.body);
@@ -123,7 +124,6 @@ router.post('/login', (req, res, next) => {
       errors: validationResult.errors
     });
   }
-
 
   return passport.authenticate('local-login', (err, token, userData) => {
     if (err) {
@@ -139,7 +139,6 @@ router.post('/login', (req, res, next) => {
         message: 'Could not process the form.'
       });
     }
-
 
     return res.json({
       success: true,

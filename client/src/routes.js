@@ -3,14 +3,13 @@ import HomePage from './components/HomePage.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
+import ContactListPage from './containers/ContactListPage.jsx';
 import Auth from './modules/Auth';
-
 
 const routes = {
   // base component (wrapper for the whole application).
   component: Base,
   childRoutes: [
-
     {
       path: '/',
       getComponent: (location, callback) => {
@@ -21,17 +20,18 @@ const routes = {
         }
       }
     },
-
     {
       path: '/login',
       component: LoginPage
     },
-
     {
       path: '/signup',
       component: SignUpPage
     },
-
+    {
+      path: 'todo',
+      component: ContactListPage
+    },
     {
       path: '/logout',
       onEnter: (nextState, replace) => {
@@ -41,7 +41,6 @@ const routes = {
         replace('/');
       }
     }
-
   ]
 };
 
