@@ -12,6 +12,13 @@ const UserSchema = new mongoose.Schema({
 });
 
 
+const Todo = new mongoose.Schema({
+  user_id    : String,
+  content    : String,
+  updated_at : Date
+});
+
+
 /**
  * Compare the passed password with the value in the database. A model method.
  *
@@ -21,7 +28,6 @@ const UserSchema = new mongoose.Schema({
 UserSchema.methods.comparePassword = function comparePassword(password, callback) {
   bcrypt.compare(password, this.password, callback);
 };
-
 
 
 // The pre-save hook method.

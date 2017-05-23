@@ -17,7 +17,7 @@ app.use(express.static('./client/dist/'));
 
 
 // tell the app to parse HTTP body messages
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 // pass the passport middleware
@@ -41,6 +41,11 @@ const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+
+
+app.get("/*", function(req, res) {
+	res.sendFile(__dirname + '/server/static/index.html')
+});
 
 
 // start the server

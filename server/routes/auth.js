@@ -9,7 +9,7 @@ const router = new express.Router();
  *
  * @param {object} payload - the HTTP body message
  * @returns {object} The result of validation. Object contains a boolean validation result,
- *                   errors tips, and a global message for the whole form.
+ * errors tips, and a global message for the whole form.
  */
 function validateSignupForm(payload) {
   const errors = {};
@@ -114,6 +114,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
+  console.log(req.body)
   const validationResult = validateLoginForm(req.body);
   if (!validationResult.success) {
     return res.status(400).json({

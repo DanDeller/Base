@@ -45,7 +45,7 @@ a:hover {
 .container {
   margin: 0 auto;
   text-align: center;
-  width: 700px;
+  // width: 700px;
 }
 
 .card-heading {
