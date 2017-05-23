@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import TextField from 'material-ui/TextField';
 
 class ContactListPage extends React.Component {
 	constructor(props, context) {
@@ -33,7 +36,7 @@ class ContactListPage extends React.Component {
     ));
     
     return (
-      <div className='class-list'>
+      <div className="field-line">
         <NewName addName={this.addName} />
         <ul className='new-name'>
           {named}
@@ -49,35 +52,48 @@ class NewName extends React.Component {
 	  super(props, context);
 	  
 	  this.state = {
-	    name: '' 
+	    name: [],
+	    textFieldValue: ''
 	  };
 	  
-	  this.handleChange = this.handleChange.bind(this);
+	  this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
 	  this.addNewName = this.addNewName.bind(this);
 	}
 
-  handleChange(e) {
-    this.setState({ 
-      input: e.target.value 
+  _handleTextFieldChange(e) {
+    this.setState({
+      textFieldValue: e.target.value
     });
-  };
+  }
   
   addNewName() {
-    const { name } = this.refs;
     const { addName } = this.props;
+    const name = this.state.textFieldValue;
     
-    addName(name.value);
-    
-    name.value = '';
+    addName(name);
+    this.state.textFieldValue = ''
   };
 
   render() {
     return (
       <Card>
       	<CardText>
-	        <input type='text' onChange={this.handleChange} ref='name' />
-	        <button onClick={this.addNewName}>Add name</button>
-	        <p>New names:</p>
+	      	<div className="field-line">
+	      		<TextField
+		          floatingLabelText="Add Name"
+		          name="name"
+		          value={this.state.textFieldValue} 
+		          onChange={this._handleTextFieldChange}
+		        />
+		        <FloatingActionButton className='fab' onClick={this.addNewName}>
+						   <i className="material-icons fab-icon" style={{color: 'white'}}>+</i>
+						</FloatingActionButton>
+						<div className='contact-list'>
+	        	<p>New names:</p>
+	        </div>
+		       </div>
+
+		      
 	       </CardText>
       </Card>
     );
