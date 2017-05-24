@@ -4,6 +4,7 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types';
 
 class ContactListPage extends React.Component {
 	constructor(props, context) {
@@ -14,6 +15,7 @@ class ContactListPage extends React.Component {
 	  };
 	  
 	  this.addName = this.addName.bind(this);
+	  this.deleteName = this.deleteName.bind(this);
 	}
 
   addName(name) {
@@ -26,22 +28,38 @@ class ContactListPage extends React.Component {
 	      names: names.concat(name)
 	    });
     }
-  };
+  }
+
+	deleteName(name) {
+    this.setState((prevState) => ({
+      names: prevState.names.filter(_name => name !== _name)
+    }));
+	}
 
   render() {
     const { names } = this.state;
     
     const named = names.map((name, i) => (
-      <li key={i}>{name}</li>
+    	<Card key={i} className='todo-list'>
+	    	<CardText>
+		      <li>{name} 	
+		      	<FloatingActionButton className='fab-delete' mini onClick={this.deleteName.bind(null, name)}>
+						   <i className="material-icons fab-icon-delete" style={{color: 'white'}}>-</i>
+						</FloatingActionButton>
+		      </li>
+	    	</CardText>
+    	</Card>
     ));
     
     return (
-      <div className="field-line">
-        <NewName addName={this.addName} />
-        <ul className='new-name'>
-          {named}
-        </ul>
-      </div>
+    	<div className='contact-list'>
+	      <div className="field-line">
+	        <NewName addName={this.addName} />
+	        <ul className='new-name'>
+	          {named}
+	        </ul>
+	      </div>
+	    </div>
     );
   }
 }
@@ -56,11 +74,11 @@ class NewName extends React.Component {
 	    textFieldValue: ''
 	  };
 	  
-	  this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
+	  this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
 	  this.addNewName = this.addNewName.bind(this);
 	}
 
-  _handleTextFieldChange(e) {
+  handleTextFieldChange(e) {
     this.setState({
       textFieldValue: e.target.value
     });
@@ -72,33 +90,39 @@ class NewName extends React.Component {
     
     addName(name);
     this.state.textFieldValue = ''
-  };
+  }
 
   render() {
     return (
       <Card>
       	<CardText>
-	      	<div className="field-line">
+      		{/*	
+      			{errors.summary && <p className="error-message">{errors.summary}</p>}
+						errorText={errors.name} -> goes on <TextField>??
+      	 	*/}
+	      	<div className='form-box'>
 	      		<TextField
 		          floatingLabelText="Add Name"
 		          name="name"
 		          value={this.state.textFieldValue} 
-		          onChange={this._handleTextFieldChange}
+		          onChange={this.handleTextFieldChange}    
 		        />
-		        <FloatingActionButton className='fab' onClick={this.addNewName}>
+		      
+		        <FloatingActionButton className='fab-add' onClick={this.addNewName} mini>
 						   <i className="material-icons fab-icon" style={{color: 'white'}}>+</i>
 						</FloatingActionButton>
-						<div className='contact-list'>
-	        	<p>New names:</p>
-	        </div>
-		       </div>
-
-		      
+		       
+		      </div>
 	       </CardText>
       </Card>
     );
   }
 }
+
+
+// NewName.propTypes = {
+//   errors: PropTypes.object.isRequired
+// };
 
 
 export default ContactListPage;
