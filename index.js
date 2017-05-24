@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const config = require('./config');
+const session = require('express-session');
 
 
 // connect to the database and load models
@@ -22,6 +23,33 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // pass the passport middleware
 app.use(passport.initialize());
+
+
+// Use the session middleware
+app.use(session({ 
+	secret: 'izzy',
+	resave: true,
+  saveUninitialized: true,
+	cookie: { 
+		maxAge: 60000 
+	}
+}))
+
+
+// Access the session as req.session
+// app.get('/todo', function(req, res, next) {
+//   var sess = req.session
+//   if (sess.views) {
+//     sess.views++
+//     res.setHeader('Content-Type', 'text/html')
+//     res.write('<p>views: ' + sess.views + '</p>')
+//     res.write('<p>expires in: ' + (sess.cookie.maxAge / 1000) + 's</p>')
+//     res.end()
+//   } else {
+//     sess.views = 1
+//     res.end('welcome to the session demo. refresh!')
+//   }
+// });
 
 
 // load passport strategies
