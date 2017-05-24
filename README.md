@@ -20,7 +20,7 @@ Base is a litle todo project with authentication.
 - yarn start
 
 <h3>Signup</h3>
-- Once started, go ahead and signup for an account. Once signed up login, click the todo link, and add yourself some todo items
+- Once started, go ahead and signup for an account. Once signed up go ahead and login, click the todo link, and add yourself some todo items.
 
 <h3>View frontend</h3>
 <a href='http://localhost:3000/'>http://localhost:3000/</a>
