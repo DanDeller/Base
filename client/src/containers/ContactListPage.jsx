@@ -6,6 +6,8 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 
+import uuid from 'uuid';
+
 class ContactListPage extends React.Component {
 	constructor(props, context) {
 	  super(props, context);
@@ -26,29 +28,29 @@ class ContactListPage extends React.Component {
     } else {
     	this.setState({
 	      names: names.concat([{
+	      	id: uuid.v4(),
 	      	name: name
 	      }])
 	    });
     }
   }
 
-	deleteName(name) {
+	deleteName(id) {
 		const { names } = this.state;
 
-    this.setState((prevState) => ({
-    	// names: names.filter(name => name.id !== id)
-      names: prevState.names.filter(_name => name !== _name)
-    }));
+    this.setState({
+    	names: names.filter(name => name.id !== id)
+    });
 	}
 
   render() {
     const { names } = this.state;
     
-    const named = names.map((name, i) => (
-    	<Card key={i} className='todo-list'>
+    const named = names.map((name, id) => (
+    	<Card key={name.id} className='todo-list'>
 	    	<CardText>
 		      <li>{name.name} 	
-		      	<FloatingActionButton className='fab-delete' mini onClick={this.deleteName.bind(null, name)}>
+		      	<FloatingActionButton className='fab-delete' mini onClick={this.deleteName.bind(null, name.id)}>
 						   <i className="material-icons fab-icon-delete" style={{color: 'white'}}>-</i>
 						</FloatingActionButton>
 		      </li>
