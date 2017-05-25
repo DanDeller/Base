@@ -9,7 +9,8 @@ const Dashboard = ({secretData}) => (
       subtitle="From here head over to your todo list and start adding items."
     />
 
-    {secretData && <CardText style={{ fontSize: '16px', color: '#36F08A' }}>{secretData}</CardText>}
+  	{/* below is jsut a quick way to let users know they are authenticated */}
+    {/* secretData && <CardText style={{ fontSize: '16px', color: '#36f08a' }}>{secretData}</CardText> */}
   </Card>
 );
 

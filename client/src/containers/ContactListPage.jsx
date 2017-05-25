@@ -25,13 +25,18 @@ class ContactListPage extends React.Component {
     	console.log('add a name first!')
     } else {
     	this.setState({
-	      names: names.concat(name)
+	      names: names.concat([{
+	      	name: name
+	      }])
 	    });
     }
   }
 
 	deleteName(name) {
+		const { names } = this.state;
+
     this.setState((prevState) => ({
+    	// names: names.filter(name => name.id !== id)
       names: prevState.names.filter(_name => name !== _name)
     }));
 	}
@@ -42,7 +47,7 @@ class ContactListPage extends React.Component {
     const named = names.map((name, i) => (
     	<Card key={i} className='todo-list'>
 	    	<CardText>
-		      <li>{name} 	
+		      <li>{name.name} 	
 		      	<FloatingActionButton className='fab-delete' mini onClick={this.deleteName.bind(null, name)}>
 						   <i className="material-icons fab-icon-delete" style={{color: 'white'}}>-</i>
 						</FloatingActionButton>
