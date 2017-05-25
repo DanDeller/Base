@@ -3,7 +3,7 @@
 [![devDependency Status](https://david-dm.org/dwyl/esta/dev-status.svg)](https://david-dm.org/dwyl/esta#info=devDependencies)
 
 # Base
-Base is a litle contact app project with authentication.
+Base is a little contact app project with authentication.
 
 <h3>Prerequisites:</h3>
 <p>In order to run the app, you will need to first install Mongoose. You can get that here <a href='http://mongoosejs.com/'>Mongoose</a>
