@@ -3,7 +3,7 @@
 [![devDependency Status](https://david-dm.org/dwyl/esta/dev-status.svg)](https://david-dm.org/dwyl/esta#info=devDependencies)
 
 # Base
-Base is a litle todo project with authentication.
+Base is a litle contact app project with authentication.
 
 <h3>Prerequisites:</h3>
 <p>In order to run the app, you will need to first install Mongoose. You can get that here <a href='http://mongoosejs.com/'>Mongoose</a>
@@ -20,7 +20,7 @@ Base is a litle todo project with authentication.
 - yarn start
 
 <h3>Signup</h3>
-- Once started, go ahead and signup for an account. Once signed up go ahead and login, click the todo link, and add yourself some todo items.
+- Once started, go ahead and signup for an account. Once signed up go ahead and login, click the contact list link, and add yourself some contacts items.
 
 <h3>View frontend</h3>
 <a href='http://localhost:3000/'>http://localhost:3000/</a>
