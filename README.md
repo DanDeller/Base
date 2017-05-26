@@ -31,7 +31,7 @@ Base is a little contact app project with authentication.
 <br />
 
 <h3>Navigating around in Mongo</h3>
-- Show all databases: `show databases`
-- Show current database: `db`
-- Select a database: `use db_name` ex. use users
-- Read items in collection: `db.db_name.find()` ex. db.users.find()
+- Show all databases: `show databases` <br />
+- Show current database: `db` <br />
+- Select a database: `use db_name` ex. use users <br />
+- Read items in collection: `db.db_name.find()` ex. db.users.find() <br />
