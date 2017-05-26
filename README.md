@@ -5,12 +5,12 @@
 # Base
 Base is a little contact app project with authentication.
 
-<h3>Prerequisites:</h3>
+<h3>Prerequisites</h3>
 <p>In order to run the app, you will need to first install Mongoose. You can get that here <a href='http://mongoosejs.com/'>Mongoose</a>
 
 >Quick note: You'll notice this project uses Yarn for dependency management. To add Yarn, head over to https://yarnpkg.com/en/ to install it. Otherwise, instead of Yarn, just use npm. Ex: `yarn install` would be the same as `npm install`.
 
-<h3>Instructions:</h3>
+<h3>Instructions</h3>
 - Clone the repo <br />
 - Install packages (yarn install)
 
@@ -24,3 +24,14 @@ Base is a little contact app project with authentication.
 
 <h3>View frontend</h3>
 <a href='http://localhost:3000/'>http://localhost:3000/</a>
+
+<br />
+<br />
+<br />
+<br />
+
+<h3>Navigating around in Mongo</h3>
+- Show all databases: `show databases`
+- Show current database: `db`
+- Select a database: `use db_name` ex. use users
+- Read items in collection: `db.db_name.find()` ex. db.users.find()
